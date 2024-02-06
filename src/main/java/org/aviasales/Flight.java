@@ -90,6 +90,16 @@ public class Flight implements Serializable {
         this.passengers = passengers;
     }
 
+    public String prettyFormat() {
+        return String.format("%-5s | %-10s | %-8s | %-18s | %-18s | %-10s",
+                this.id, this.date, this.time, this.departureCity, this.destinationCity, this.aircraft);
+    }
+
+    public static void generalInformationPrettyFormat() {
+        System.out.printf("%-5s | %-10s | %-8s | %-18s | %-18s | %-10s%n",
+                "ID", "DATE", "TIME", "DEPARTURE CITY", "DESTINATION CITY", "AIRCRAFT");
+    }
+
     @Override
     public String toString() {
         return "Flight{" +

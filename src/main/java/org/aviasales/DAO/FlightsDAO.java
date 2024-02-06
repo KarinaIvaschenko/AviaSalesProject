@@ -9,8 +9,6 @@ public interface FlightsDAO {
 
     void setAllFlights(List<Flight> flights);
 
-    Flight getFlightByIndex(int index);
-
     Flight getFlightById(int id);
 
     boolean deleteFlightByIndex(int index);

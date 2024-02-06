@@ -15,7 +15,16 @@ public class FlightsController {
     public List<Flight> getAllFlights() {
         return flightsService.getAllFlights();
     }
+
     public void setAllFlights(List<Flight> flights) {
         flightsService.setAllFlights(flights);
+    }
+
+    public void displayAllFlights() {
+        flightsService.displayAllFlights();
+    }
+
+    public Flight getFlightById(int id) {
+        return flightsService.getFlightById(id);
     }
 }

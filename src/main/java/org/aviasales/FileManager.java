@@ -14,7 +14,7 @@ public class FileManager {
     }
     public static List<Flight> loadData() {
         List<Flight> flights;
-        try (FileInputStream fileIn = new FileInputStream("src/main/java/org/example/Data/flights.dat");
+        try (FileInputStream fileIn = new FileInputStream("src/main/java/org/aviasales/Data/flights.dat");
              ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
             flights = (List<Flight>) objectIn.readObject();
 

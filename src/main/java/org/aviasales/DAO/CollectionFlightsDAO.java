@@ -23,18 +23,12 @@ public class CollectionFlightsDAO implements FlightsDAO {
     }
 
     @Override
-    public Flight getFlightByIndex(int index) {
-        try {
-            return this.getAllFlights().get(index);
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
-    @Override
     public Flight getFlightById(int id) {
         try {
-            return this.flights.get(id);
+            return this.flights.stream()
+                    .filter(flight -> flight.getId() == id)
+                    .findFirst()
+                    .orElse(null);
         } catch (Exception e) {
             throw e;
         }

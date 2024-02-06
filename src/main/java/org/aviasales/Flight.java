@@ -3,22 +3,24 @@ package org.aviasales;
 import org.aviasales.Enums.Aircrafts;
 import org.aviasales.Enums.Cities;
 
-public class Flight {
+import java.io.Serializable;
+
+public class Flight implements Serializable {
     private int id;
     private String date;
     private String time;
-    private Cities arrival;
-    private Cities departure;
+    private Cities departureCity;
+    private Cities destinationCity;
     private int freeSeats;
     private Aircrafts aircraft;
     private int passengers;
 
-    public Flight(int id, String date, String time, Cities arrival, Cities departure, int freeSeats, Aircrafts aircraft, int passengers) {
+    public Flight(int id, String date, String time, Cities departureCity, Cities destinationCity, int freeSeats, Aircrafts aircraft, int passengers) {
         this.id = id;
         this.date = date;
         this.time = time;
-        this.arrival = arrival;
-        this.departure = departure;
+        this.departureCity = departureCity;
+        this.destinationCity = destinationCity;
         this.freeSeats = freeSeats;
         this.aircraft = aircraft;
         this.passengers = passengers;
@@ -48,20 +50,20 @@ public class Flight {
         this.time = time;
     }
 
-    public Cities getArrival() {
-        return arrival;
+    public Cities getDepartureCity() {
+        return departureCity;
     }
 
-    public void setArrival(Cities arrival) {
-        this.arrival = arrival;
+    public void setDepartureCity(Cities departureCity) {
+        this.departureCity = departureCity;
     }
 
-    public Cities getDeparture() {
-        return departure;
+    public Cities getDestinationCity() {
+        return destinationCity;
     }
 
-    public void setDeparture(Cities departure) {
-        this.departure = departure;
+    public void setDestinationCity(Cities destinationCity) {
+        this.destinationCity = destinationCity;
     }
 
     public int getFreeSeats() {
@@ -86,5 +88,19 @@ public class Flight {
 
     public void setPassengers(int passengers) {
         this.passengers = passengers;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", time='" + time + '\'' +
+                ", departureCity=" + departureCity +
+                ", destinationCity=" + destinationCity +
+                ", freeSeats=" + freeSeats +
+                ", aircraft=" + aircraft +
+                ", passengers=" + passengers +
+                '}';
     }
 }

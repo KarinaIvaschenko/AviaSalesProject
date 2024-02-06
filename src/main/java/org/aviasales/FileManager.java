@@ -1,8 +1,6 @@
 package org.aviasales;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.List;
 
 public class FileManager {
@@ -13,5 +11,16 @@ public class FileManager {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static List<Flight> loadData() {
+        List<Flight> flights;
+        try (FileInputStream fileIn = new FileInputStream("src/main/java/org/example/Data/flights.dat");
+             ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
+            flights = (List<Flight>) objectIn.readObject();
+
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return flights;
     }
 }

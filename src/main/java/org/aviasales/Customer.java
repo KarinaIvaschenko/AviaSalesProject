@@ -4,6 +4,7 @@ public class Customer {
     Human human;
     String login;
     String password;
+    Booking bookings;
 
     public Customer(Human human, String login, String password) {
         this.human = human;

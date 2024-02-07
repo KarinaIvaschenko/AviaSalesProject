@@ -1,6 +1,7 @@
 package org.aviasales;
 
 import org.aviasales.Enums.Aircrafts;
+import org.aviasales.Enums.Aviacompanies;
 import org.aviasales.Enums.Cities;
 
 import java.io.Serializable;
@@ -14,8 +15,9 @@ public class Flight implements Serializable {
     private int freeSeats;
     private Aircrafts aircraft;
     private int passengers;
+    private Aviacompanies aviacompanies;
 
-    public Flight(int id, String date, String time, Cities departureCity, Cities destinationCity, int freeSeats, Aircrafts aircraft, int passengers) {
+    public Flight(int id, String date, String time, Cities departureCity, Cities destinationCity, int freeSeats, Aircrafts aircraft, int passengers, Aviacompanies aviacompanies) {
         this.id = id;
         this.date = date;
         this.time = time;
@@ -24,6 +26,7 @@ public class Flight implements Serializable {
         this.freeSeats = freeSeats;
         this.aircraft = aircraft;
         this.passengers = passengers;
+        this.aviacompanies = aviacompanies;
     }
 
     public int getId() {
@@ -90,14 +93,22 @@ public class Flight implements Serializable {
         this.passengers = passengers;
     }
 
+    public Aviacompanies getAviacompanies() {
+        return aviacompanies;
+    }
+
+    public void setAviacompanies(Aviacompanies aviacompanies) {
+        this.aviacompanies = aviacompanies;
+    }
+
     public String prettyFormat() {
-        return String.format("%-5s | %-10s | %-8s | %-18s | %-18s | %-10s",
-                this.id, this.date, this.time, this.departureCity, this.destinationCity, this.aircraft);
+        return String.format("%-5s | %-10s | %-8s | %-18s | %-18s | %-18s | %-18s",
+                this.id, this.date, this.time, this.departureCity, this.destinationCity, this.aircraft, this.aviacompanies);
     }
 
     public static void generalInformationPrettyFormat() {
-        System.out.printf("%-5s | %-10s | %-8s | %-18s | %-18s | %-10s%n",
-                "ID", "DATE", "TIME", "DEPARTURE CITY", "DESTINATION CITY", "AIRCRAFT");
+        System.out.printf("%-5s | %-10s | %-8s | %-18s | %-18s | %-18s | %-18s%n",
+                "ID", "DATE", "TIME", "DEPARTURE CITY", "DESTINATION CITY", "AIRCRAFT", "AVIACOMPANY");
     }
 
     @Override
@@ -111,6 +122,7 @@ public class Flight implements Serializable {
                 ", freeSeats=" + freeSeats +
                 ", aircraft=" + aircraft +
                 ", passengers=" + passengers +
+                ", aviacompany=" + aviacompanies +
                 '}';
     }
 }

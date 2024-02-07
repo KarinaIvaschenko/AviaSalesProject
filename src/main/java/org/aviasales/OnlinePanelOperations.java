@@ -1,21 +1,27 @@
 package org.aviasales;
 
 import org.aviasales.Controllers.FlightsController;
+import org.aviasales.Services.FlightsService;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class OnlinePanelOperations {
-    public static void chooseMenu() {
+    public static void chooseMenu() throws ParseException {
         Scanner in = new Scanner(System.in);
         FlightsController flightsController = new FlightsController();
+//        RandomGenerator randomGenerator = new RandomGenerator();
         flightsController.setAllFlights(FileManager.loadData());
+//        FileManager.writeData(randomGenerator.randomGenerator());
+
         OnlinePanel.showOnlinePanel();
         System.out.println("Make your choice");
         while (true) {
             String menuItem = in.nextLine();
             switch (menuItem) {
                 case "1":
-                    flightsController.displayAllFlights();
+//                    flightsController.displayAllFlights();
+                    flightsController.displayAllFlightsFor24Hours();
                     OnlinePanelOperations.chooseMenu();
                     break;
                 case "2":

@@ -3,7 +3,7 @@ package org.aviasales;
 public class OnlinePanel {
     public static void showOnlinePanel() {
         System.out.println();
-        System.out.println("-----Введіть команду-----");
+        System.out.println("-----Enter command-----");
         System.out.println();
         System.out.println("- 1. Online Panel\n" +
                 "- 2. View Flight Information\n" +

@@ -5,8 +5,11 @@ import org.aviasales.Enums.Aviacompanies;
 import org.aviasales.Enums.Cities;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class Flight implements Serializable {
+public class Flight implements Serializable, Comparable<Flight> {
     private int id;
     private String date;
     private String time;
@@ -124,5 +127,23 @@ public class Flight implements Serializable {
                 ", passengers=" + passengers +
                 ", aviacompany=" + aviacompanies +
                 '}';
+    }
+
+    public Date getDateFormat() throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+        String day = this.date.substring(0, this.date.indexOf("/"));
+        String month = this.date.substring(this.date.indexOf("/") + 1, this.date.lastIndexOf("/"));
+        String year = this.date.substring(this.date.lastIndexOf("/") + 1);
+        String dateTimeString = year + "/" + month + "/" + day + " " + this.time;
+        return dateFormat.parse(dateTimeString);
+    }
+
+    @Override
+    public int compareTo(Flight o) {
+        try {
+            return this.getDateFormat().compareTo(o.getDateFormat());
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

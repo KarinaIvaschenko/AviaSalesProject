@@ -6,10 +6,11 @@ public class Customer {
     String password;
     Booking bookings;
 
-    public Customer(Human human, String login, String password) {
+    public Customer(Human human, String login, String password, Booking bookings) {
         this.human = human;
         this.login = login;
         this.password = password;
+        this.bookings = bookings;
     }
 
     public Human getHuman() {
@@ -34,5 +35,13 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Booking getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(Booking bookings) {
+        this.bookings = bookings;
     }
 }

@@ -10,10 +10,9 @@ public class OnlinePanelOperations {
     public static void chooseMenu() throws ParseException {
         Scanner in = new Scanner(System.in);
         FlightsController flightsController = new FlightsController();
-//        RandomGenerator randomGenerator = new RandomGenerator();
         flightsController.setAllFlights(FileManager.loadData());
+//        RandomGenerator randomGenerator = new RandomGenerator();
 //        FileManager.writeData(randomGenerator.randomGenerator());
-
         OnlinePanel.showOnlinePanel();
         System.out.println("Make your choice");
         while (true) {

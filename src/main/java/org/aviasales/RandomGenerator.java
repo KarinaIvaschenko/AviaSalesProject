@@ -56,7 +56,7 @@ public class RandomGenerator {
 
     public List<Flight> randomGenerator() {
         List<Flight> flights = new ArrayList<>();
-        for (int i = 1; i <= 301; i++) {
+        for (int i = 1; i <= 10000; i++) {
             Flight flight = new Flight(i, getRandomDate(), getRandomTime(), getRandomCity(), getRandomCity(),
                     getRandomFreeSeats(), getRandomAircraft(), getRandomPassengers(), getRandomAviacompanies());
             flights.add(flight);

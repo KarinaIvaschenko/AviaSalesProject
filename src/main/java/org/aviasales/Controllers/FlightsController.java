@@ -3,6 +3,7 @@ package org.aviasales.Controllers;
 import org.aviasales.Flight;
 import org.aviasales.Services.FlightsService;
 
+import java.text.ParseException;
 import java.util.List;
 
 public class FlightsController {
@@ -26,5 +27,8 @@ public class FlightsController {
 
     public Flight getFlightById(int id) {
         return flightsService.getFlightById(id);
+    }
+    public void displayAllFlightsFor24Hours() throws ParseException {
+      flightsService.displayAllFlightsFor24Hours();
     }
 }

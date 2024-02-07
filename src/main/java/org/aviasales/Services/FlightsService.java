@@ -5,10 +5,10 @@ import org.aviasales.Flight;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class FlightsService {
     private final CollectionFlightsDAO collectionFlightsDAO = new CollectionFlightsDAO();
@@ -19,6 +19,11 @@ public class FlightsService {
 
     public void setAllFlights(List<Flight> flights) {
         collectionFlightsDAO.setAllFlights(flights);
+    }
+
+    public List<Flight> getAllFlightsSorted() {
+        Collections.sort(collectionFlightsDAO.getAllFlights());
+        return collectionFlightsDAO.getAllFlights();
     }
 
     public void displayAllFlights() {
@@ -32,9 +37,9 @@ public class FlightsService {
 
     public void displayAllFlightsFor24Hours() throws ParseException {
         Flight.generalInformationPrettyFormat();
-        if (!getAllFlights().isEmpty()) {
+        if (!collectionFlightsDAO.getAllFlights().isEmpty()) {
             long currentTimeMillis = System.currentTimeMillis();
-               for (Flight flight : collectionFlightsDAO.getAllFlights()) {
+               for (Flight flight : getAllFlightsSorted()) {
                 Date flightDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(flight.getDate() + " " + flight.getTime());
                 long unixTimestamp = flightDate.getTime();
                 long hours24InMillis = 24 * 60 * 60 * 1000;

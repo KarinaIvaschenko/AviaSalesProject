@@ -39,7 +39,7 @@ public class FlightsService {
         Flight.generalInformationPrettyFormat();
         if (!collectionFlightsDAO.getAllFlights().isEmpty()) {
             long currentTimeMillis = System.currentTimeMillis();
-               for (Flight flight : getAllFlightsSorted()) {
+            for (Flight flight : getAllFlightsSorted()) {
                 Date flightDate = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(flight.getDate() + " " + flight.getTime());
                 long unixTimestamp = flightDate.getTime();
                 long hours24InMillis = 24 * 60 * 60 * 1000;
@@ -54,5 +54,21 @@ public class FlightsService {
 
     public Flight getFlightById(int id) {
         return collectionFlightsDAO.getFlightById(id);
+    }
+
+    public void findReqFlights(String pointA, String pointB, String date, int passengers) {
+        Flight.generalInformationPrettyFormat();
+        if (!collectionFlightsDAO.getAllFlights().isEmpty()) {
+            for (Flight flight : getAllFlightsSorted()) {
+                if (String.valueOf(flight.getDepartureCity()).equals(pointA) &&
+                        String.valueOf(flight.getDestinationCity()).equals(pointB) &&
+                        flight.getDate().equals(date) &&
+                        flight.getFreeSeats() >= passengers) {
+                    System.out.println(flight.prettyFormat());
+                }
+            }
+        } else {
+            System.out.println("No flights");
+        }
     }
 }

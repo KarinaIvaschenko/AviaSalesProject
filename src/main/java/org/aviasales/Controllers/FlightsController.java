@@ -33,7 +33,7 @@ public class FlightsController {
         flightsService.displayAllFlightsFor24Hours();
     }
 
-    public void findReqFlights(String pointA, String pointB, String date, int passengers) {
-        flightsService.findReqFlights(pointA, pointB, date, passengers);
+    public boolean findReqFlights(String pointA, String pointB, String date, int passengers) {
+        return flightsService.findReqFlights(pointA, pointB, date, passengers);
     }
 }

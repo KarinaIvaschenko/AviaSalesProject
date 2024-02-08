@@ -56,7 +56,8 @@ public class FlightsService {
         return collectionFlightsDAO.getFlightById(id);
     }
 
-    public void findReqFlights(String pointA, String pointB, String date, int passengers) {
+    public boolean findReqFlights(String pointA, String pointB, String date, int passengers) {
+        boolean flightsFound = false;
         Flight.generalInformationPrettyFormat();
         if (!collectionFlightsDAO.getAllFlights().isEmpty()) {
             for (Flight flight : getAllFlightsSorted()) {
@@ -65,10 +66,12 @@ public class FlightsService {
                         flight.getDate().equals(date) &&
                         flight.getFreeSeats() >= passengers) {
                     System.out.println(flight.prettyFormat());
+                    flightsFound = true;
                 }
             }
         } else {
             System.out.println("No flights");
         }
+        return flightsFound;
     }
 }

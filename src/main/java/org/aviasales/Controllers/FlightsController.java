@@ -28,7 +28,12 @@ public class FlightsController {
     public Flight getFlightById(int id) {
         return flightsService.getFlightById(id);
     }
+
     public void displayAllFlightsFor24Hours() throws ParseException {
-      flightsService.displayAllFlightsFor24Hours();
+        flightsService.displayAllFlightsFor24Hours();
+    }
+
+    public void findReqFlights(String pointA, String pointB, String date, int passengers) {
+        flightsService.findReqFlights(pointA, pointB, date, passengers);
     }
 }

@@ -11,8 +11,6 @@ public interface FlightsDAO {
 
     Flight getFlightById(int id);
 
-    boolean deleteFlightByIndex(int index);
-
     boolean deleteFlightById(int id);
 
     void saveFlight(Flight flight);

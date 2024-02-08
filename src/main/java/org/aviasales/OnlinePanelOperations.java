@@ -9,10 +9,6 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class OnlinePanelOperations {
-    public void flightReqForCase3() {
-
-    }
-
     public static void chooseMenu() throws ParseException {
         Scanner in = new Scanner(System.in);
         FlightsController flightsController = new FlightsController();
@@ -64,7 +60,23 @@ public class OnlinePanelOperations {
                             System.out.println("Would you like to make a reservation? Yes/No");
                             String reservation = in.nextLine().toLowerCase();
                             if (reservation.equals("yes")) {
-                                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                                while (!(passengers == 0)) {
+                                    System.out.println("Write please Name");
+                                    String name = in.nextLine();
+                                    System.out.println("Write please Surname");
+                                    String surname = in.nextLine();
+                                    System.out.println("Write please Gender. Man/Woman");
+                                    String gender = in.nextLine().toLowerCase();
+                                    while (!(gender.equals("man") || gender.equals("woman"))) {
+                                        System.out.println("Write please Gender. Man/Woman");
+                                        gender = in.nextLine().toLowerCase();
+                                    }
+
+                                    Human human = new Human(name, surname, gender);
+                                    System.out.println(human);
+                                    passengers--;
+                                }
+
                             } else {
                                 break;
                             }

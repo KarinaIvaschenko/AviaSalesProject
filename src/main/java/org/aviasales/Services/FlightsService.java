@@ -5,7 +5,6 @@ import org.aviasales.Flight;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -53,7 +52,19 @@ public class FlightsService {
     }
 
     public Flight getFlightById(int id) {
-        return collectionFlightsDAO.getFlightById(id);
+        try {
+            return collectionFlightsDAO.getFlightById(id);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public boolean deleteFlightById(int id) {
+        try {
+            return collectionFlightsDAO.deleteFlightById(id);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     public boolean findReqFlights(String pointA, String pointB, String date, int passengers) {
@@ -73,5 +84,11 @@ public class FlightsService {
             System.out.println("No flights");
         }
         return flightsFound;
+    }
+
+    public void soldTicket(int id, int tickets) {
+        collectionFlightsDAO.getFlightById(id).setFreeSeats(collectionFlightsDAO.getFlightById(id)
+                .getFreeSeats() - tickets);
+        collectionFlightsDAO.saveFlight(collectionFlightsDAO.getFlightById(id));
     }
 }

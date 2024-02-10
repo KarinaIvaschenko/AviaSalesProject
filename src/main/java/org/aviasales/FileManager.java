@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.List;
 
 public class FileManager {
-    private static final String FILE_PATH = "Data/flights.dat"; // Относительный путь к файлу
+    private static final String FILE_PATH = "Data/flights.dat";
     public static void writeData(List<Flight> flights) {
         try (FileOutputStream fileOut = new FileOutputStream(FILE_PATH);
              ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {

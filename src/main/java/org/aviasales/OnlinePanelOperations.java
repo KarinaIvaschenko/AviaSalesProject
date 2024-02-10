@@ -1,18 +1,20 @@
 package org.aviasales;
 
+import org.aviasales.Controllers.BookingsController;
 import org.aviasales.Controllers.FlightsController;
 import org.aviasales.Services.FlightsService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 public class OnlinePanelOperations {
     public static void chooseMenu() throws ParseException {
         Scanner in = new Scanner(System.in);
         FlightsController flightsController = new FlightsController();
-        flightsController.setAllFlights(FileManager.loadData());
+        BookingsController bookingsController = new BookingsController();
+        flightsController.setAllFlights(FileManager.loadFlightsData());
+        bookingsController.setAllBookings(FileManager.loadBookingsData());
 //        RandomGenerator randomGenerator = new RandomGenerator();
 //        FileManager.writeData(randomGenerator.randomGenerator());
 
@@ -60,7 +62,11 @@ public class OnlinePanelOperations {
                             System.out.println("Would you like to make a reservation? Yes/No");
                             String reservation = in.nextLine().toLowerCase();
                             if (reservation.equals("yes")) {
+                                Set<Human> humans = new LinkedHashSet<>();
+                                int counter = 0;
                                 while (!(passengers == 0)) {
+                                    counter++;
+                                    System.out.println("Write please information about passenger №" + counter);
                                     System.out.println("Write please Name");
                                     String name = in.nextLine();
                                     System.out.println("Write please Surname");
@@ -73,9 +79,14 @@ public class OnlinePanelOperations {
                                     }
 
                                     Human human = new Human(name, surname, gender);
-                                    System.out.println(human);
+                                    humans.add(human);
+
                                     passengers--;
                                 }
+                                Booking booking = new Booking(bookingsController.generateID(), flightsController.getFlightById(choice), humans);
+                                bookingsController.saveBooking(booking);
+                                System.out.println("You have successfully booked tickets");
+                                break;
 
                             } else {
                                 break;
@@ -89,7 +100,9 @@ public class OnlinePanelOperations {
                 case "5":
                 case "6":
                 case "exit":
-                    FileManager.writeData(flightsController.getAllFlights());
+                    FileManager.writeFlightsData(flightsController.getAllFlights());
+                    FileManager.writeBookingsData(bookingsController.getAllBookings());
+                    System.out.println("Thanks for choosing us!");
                     return;
 
                 default:

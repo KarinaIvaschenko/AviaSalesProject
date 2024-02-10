@@ -1,8 +1,9 @@
 package org.aviasales;
 
+import java.io.Serializable;
 import java.util.Set;
 
-public class Booking {
+public class Booking implements Serializable {
     private int bookingId;
     private Flight flight;
     private Set<Human> humans;
@@ -35,5 +36,14 @@ public class Booking {
 
     public void setHumans(Set<Human> humans) {
         this.humans = humans;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "bookingId=" + bookingId +
+                ", flight=" + flight +
+                ", humans=" + humans +
+                '}';
     }
 }

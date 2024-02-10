@@ -17,7 +17,7 @@ public class BookingsService {
     }
 
 
-//    public void displayAllFlights() {
+    //    public void displayAllFlights() {
 //        Flight.generalInformationPrettyFormat();
 //        if (!getAllFlights().isEmpty()) {
 //            collectionFlightsDAO.getAllFlights().forEach(flight -> System.out.println(flight.prettyFormat()));
@@ -32,11 +32,24 @@ public class BookingsService {
             throw e;
         }
     }
+
     public boolean deleteBookingById(int id) {
         try {
             return collectionBookingsDAO.deleteBookingById(id);
         } catch (Exception e) {
             throw e;
         }
+    }
+
+    public void saveBooking(Booking booking) {
+        try {
+            collectionBookingsDAO.saveBooking(booking);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public int generateID() {
+        return collectionBookingsDAO.generateID();
     }
 }

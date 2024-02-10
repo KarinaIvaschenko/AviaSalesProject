@@ -4,8 +4,9 @@ import java.io.*;
 import java.util.List;
 
 public class FileManager {
+    private static final String FILE_PATH = "Data/flights.dat"; // Относительный путь к файлу
     public static void writeData(List<Flight> flights) {
-        try (FileOutputStream fileOut = new FileOutputStream("src/main/java/org/aviasales/Data/flights.dat");
+        try (FileOutputStream fileOut = new FileOutputStream(FILE_PATH);
              ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
             objectOut.writeObject(flights);
         } catch (IOException e) {
@@ -14,7 +15,7 @@ public class FileManager {
     }
     public static List<Flight> loadData() {
         List<Flight> flights;
-        try (FileInputStream fileIn = new FileInputStream("src/main/java/org/aviasales/Data/flights.dat");
+        try (FileInputStream fileIn = new FileInputStream(FILE_PATH);
              ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
             flights = (List<Flight>) objectIn.readObject();
 

@@ -1,10 +1,12 @@
 package org.aviasales;
 
-public class Human {
+import java.io.Serializable;
+
+public class Human implements Serializable {
     private String name;
     private String surname;
     private String gender;
-    private Booking booking;
+//    private Booking booking;
 
     public Human(String name, String surname, String gender) {
         this.name = name;

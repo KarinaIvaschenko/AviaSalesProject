@@ -7,6 +7,7 @@ import java.util.List;
 
 public class BookingsController {
     BookingsService bookingsService;
+
     public BookingsController() {
         this.bookingsService = new BookingsService();
     }
@@ -27,5 +28,11 @@ public class BookingsController {
         return bookingsService.getBookingById(id);
     }
 
+    public void saveBooking(Booking booking) {
+        bookingsService.saveBooking(booking);
+    }
 
+    public int generateID() {
+        return bookingsService.generateID();
+    }
 }

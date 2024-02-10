@@ -14,4 +14,6 @@ public interface BookingsDAO {
     boolean deleteBookingById(int id);
 
     void saveBooking(Booking booking);
+
+    int generateID();
 }

@@ -15,6 +15,7 @@ public class OnlinePanelOperations {
         BookingsController bookingsController = new BookingsController();
         flightsController.setAllFlights(FileManager.loadFlightsData());
         bookingsController.setAllBookings(FileManager.loadBookingsData());
+        System.out.println(bookingsController.getAllBookings());
 //        RandomGenerator randomGenerator = new RandomGenerator();
 //        FileManager.writeData(randomGenerator.randomGenerator());
 
@@ -68,9 +69,9 @@ public class OnlinePanelOperations {
                                     counter++;
                                     System.out.println("Write please information about passenger №" + counter);
                                     System.out.println("Write please Name");
-                                    String name = in.nextLine();
+                                    String name = in.nextLine().toLowerCase();
                                     System.out.println("Write please Surname");
-                                    String surname = in.nextLine();
+                                    String surname = in.nextLine().toLowerCase();
                                     System.out.println("Write please Gender. Man/Woman");
                                     String gender = in.nextLine().toLowerCase();
                                     while (!(gender.equals("man") || gender.equals("woman"))) {
@@ -97,7 +98,28 @@ public class OnlinePanelOperations {
                         break;
                     }
                 case "4":
+                    System.out.println("Enter please booking ID you would like to cancel");
+                    int idBooking = in.nextInt();
+                    in.nextLine();
+                    if (bookingsController.getBookingById(idBooking) != null) {
+                        bookingsController.deleteBookingById(idBooking);
+                        System.out.println("Your reservation №" + idBooking + " was successfully cancelled");
+                    } else {
+                        System.out.println("There is no reservation with id" + idBooking);
+                    }
+                    break;
                 case "5":
+                    System.out.println("Write please information about passenger");
+                    System.out.println("Write please Name");
+                    String name = in.nextLine().toLowerCase();
+                    System.out.println("Write please Surname");
+                    String surname = in.nextLine().toLowerCase();
+                    if (!bookingsController.getBookingsByHuman(name, surname).isEmpty()) {
+                        System.out.println(bookingsController.getBookingsByHuman(name, surname));
+                    } else {
+                        System.out.println("This passenger has no bookings");
+                    }
+                    break;
                 case "6":
                 case "exit":
                     FileManager.writeFlightsData(flightsController.getAllFlights());

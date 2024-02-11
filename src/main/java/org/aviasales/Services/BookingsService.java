@@ -2,7 +2,9 @@ package org.aviasales.Services;
 
 import org.aviasales.Booking;
 import org.aviasales.DAO.CollectionBookingsDAO;
+import org.aviasales.Human;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookingsService {
@@ -51,5 +53,17 @@ public class BookingsService {
 
     public int generateID() {
         return collectionBookingsDAO.generateID();
+    }
+
+    public List<Booking> getBookingsByHuman(String name, String surname) {
+        List<Booking> bookingsHuman = new ArrayList<>();
+        for (Booking booking : collectionBookingsDAO.getAllBookings()) {
+            for (Human human : booking.getHumans()) {
+                if (human.getName().equals(name) && human.getSurname().equals(surname)) {
+                    bookingsHuman.add(booking);
+                }
+            }
+        }
+        return bookingsHuman;
     }
 }

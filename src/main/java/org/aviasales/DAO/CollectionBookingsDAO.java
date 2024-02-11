@@ -33,8 +33,7 @@ public class CollectionBookingsDAO implements BookingsDAO {
     @Override
     public boolean deleteBookingById(int id) {
         if (!this.bookings.isEmpty()) {
-            this.bookings.remove(id);
-            return true;
+            return this.bookings.removeIf(booking -> booking.getBookingId() == id);
         }
         return false;
     }

@@ -35,4 +35,10 @@ public class BookingsController {
     public int generateID() {
         return bookingsService.generateID();
     }
+    public boolean deleteBookingById(int id){
+        return bookingsService.deleteBookingById(id);
+    }
+    public List<Booking> getBookingsByHuman(String name, String surname){
+        return bookingsService.getBookingsByHuman(name, surname);
+    }
 }

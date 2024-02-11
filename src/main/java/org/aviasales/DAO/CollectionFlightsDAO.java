@@ -33,8 +33,7 @@ public class CollectionFlightsDAO implements FlightsDAO {
     @Override
     public boolean deleteFlightById(int id) {
         if (!this.flights.isEmpty()) {
-            this.flights.remove(id);
-            return true;
+            return this.flights.removeIf(flight -> flight.getId() == id);
         }
         return false;
     }

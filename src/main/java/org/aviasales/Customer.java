@@ -1,14 +1,15 @@
 package org.aviasales;
 
-public class Customer {
+public class Customer extends Human {
     private int customerId;
     private Human human;
     private String login;
     private String password;
     private Booking bookings;
 
-    public Customer(Human human, String login, String password) {
-        this.human = human;
+    public Customer(int customerId, String name, String surname, String gender, String login, String password) {
+        super(name, surname, gender);
+        this.customerId = customerId;
         this.login = login;
         this.password = password;
     }

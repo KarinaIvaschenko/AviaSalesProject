@@ -8,6 +8,7 @@ import java.util.List;
 public class FileManager {
     private static final String FILE_PATH_FLIGHTS = "Data/flights.dat";
     private static final String FILE_PATH_BOOKINGS = "Data/bookings.dat";
+    private static final String FILE_PATH_CUSTOMERS = "Data/customers.dat";
 
     public static void writeFlightsData(List<Flight> flights) throws IOException {
         Files.createDirectories(Paths.get("Data/"));
@@ -51,5 +52,27 @@ public class FileManager {
             throw new RuntimeException(e);
         }
         return bookings;
+    }
+
+    public static void writeCustomersData(List<Customer> customers) throws IOException {
+        Files.createDirectories(Paths.get("Data/"));
+        try (FileOutputStream fileOut = new FileOutputStream(FILE_PATH_CUSTOMERS);
+             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
+            objectOut.writeObject(customers);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static List<Customer> loadCustomersData() {
+        List<Customer> customers;
+        try (FileInputStream fileIn = new FileInputStream(FILE_PATH_CUSTOMERS);
+             ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
+            customers = (List<Customer>) objectIn.readObject();
+
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return customers;
     }
 }

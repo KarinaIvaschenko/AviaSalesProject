@@ -21,6 +21,10 @@ public class CustomersService {
     }
 
     public void signUp(Customer customer) {
-     collectionCustomersDAO.signUp(customer);
+        collectionCustomersDAO.signUp(customer);
+    }
+
+    public Customer signIn(String login, String password) {
+        return collectionCustomersDAO.signIn(login, password);
     }
 }

@@ -1,6 +1,7 @@
 package org.aviasales;
 
 import org.aviasales.Controllers.BookingsController;
+import org.aviasales.Controllers.CustomersController;
 import org.aviasales.Controllers.FlightsController;
 import org.aviasales.Services.FlightsService;
 
@@ -14,9 +15,10 @@ public class OnlinePanelOperations {
         Scanner in = new Scanner(System.in);
         FlightsController flightsController = new FlightsController();
         BookingsController bookingsController = new BookingsController();
+        CustomersController customersController = new CustomersController();
         flightsController.setAllFlights(FileManager.loadFlightsData());
         bookingsController.setAllBookings(FileManager.loadBookingsData());
-        System.out.println(bookingsController.getAllBookings());
+        customersController.setAllCustomers(FileManager.loadCustomersData());
 //        RandomGenerator randomGenerator = new RandomGenerator();
 //        FileManager.writeData(randomGenerator.randomGenerator());
         String incorrectInput = "Incorrect input. Make right choice";
@@ -26,8 +28,40 @@ public class OnlinePanelOperations {
             String menuCustomer = in.nextLine();
             switch (menuCustomer) {
                 case "1":
+                    System.out.println("Write please Login");
+                    String loginCustomer = in.nextLine();
+                    System.out.println("Write please password");
+                    String passwordCustomer = in.nextLine();
+                    customersController.signIn(loginCustomer, passwordCustomer);
+                    if (customersController.signIn(loginCustomer, passwordCustomer) != null) {
+                        System.out.println("Welcome back, " + loginCustomer);
+                        break;
+                    } else {
+                        System.out.println("Incorrect login or password");
+                        continue;
+                    }
                 case "2":
+                    System.out.println("Write please Name");
+                    String name = in.nextLine().toLowerCase();
+                    System.out.println("Write please Surname");
+                    String surname = in.nextLine().toLowerCase();
+                    System.out.println("Write please Gender. Man/Woman");
+                    String gender = in.nextLine().toLowerCase();
+                    while (!(gender.equals("man") || gender.equals("woman"))) {
+                        System.out.println("Write please Gender. Man/Woman");
+                        gender = in.nextLine().toLowerCase();
+                    }
+                    System.out.println("Write please Login");
+                    String login = in.nextLine();
+                    System.out.println("Write please password");
+                    String password = in.nextLine();
+                    Customer customer = new Customer(customersController.generateID(), name, surname, gender, login, password);
+                    customersController.signUp(customer);
+                    FileManager.writeCustomersData(customersController.getAllCustomers());
+                    System.out.println("Thank you for registration");
+                    continue;
                 case "3":
+                    break;
                 default:
                     System.out.println(incorrectInput);
             }

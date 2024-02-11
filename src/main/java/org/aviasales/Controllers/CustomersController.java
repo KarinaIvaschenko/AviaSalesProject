@@ -27,4 +27,8 @@ public class CustomersController {
     public void signUp(Customer customer) {
         customersService.signUp(customer);
     }
+
+    public Customer signIn(String login, String password) {
+        return customersService.signIn(login, password);
+    }
 }

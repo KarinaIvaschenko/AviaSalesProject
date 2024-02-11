@@ -39,4 +39,12 @@ public class CollectionCustomersDAO implements CustomersDAO {
             this.customers.add(customer);
         }
     }
+
+    @Override
+    public Customer signIn(String login, String password) {
+        return this.customers.stream()
+                .filter(customer -> customer.getLogin().equals(login) && customer.getPassword().equals(password))
+                .findFirst()
+                .orElse(null);
+    }
 }

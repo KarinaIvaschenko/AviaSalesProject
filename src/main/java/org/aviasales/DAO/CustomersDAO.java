@@ -11,4 +11,5 @@ public interface CustomersDAO {
 
     int generateID();
     public void signUp(Customer customer);
+    public Customer signIn(String login, String password);
 }

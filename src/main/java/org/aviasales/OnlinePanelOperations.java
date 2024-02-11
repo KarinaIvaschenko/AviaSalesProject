@@ -19,8 +19,18 @@ public class OnlinePanelOperations {
         System.out.println(bookingsController.getAllBookings());
 //        RandomGenerator randomGenerator = new RandomGenerator();
 //        FileManager.writeData(randomGenerator.randomGenerator());
+        String incorrectInput = "Incorrect input. Make right choice";
 
         while (true) {
+            System.out.println("1. Sign in\n2. Sign up\n3. Continue without authorization");
+            String menuCustomer = in.nextLine();
+            switch (menuCustomer) {
+                case "1":
+                case "2":
+                case "3":
+                default:
+                    System.out.println(incorrectInput);
+            }
             OnlinePanel.showOnlinePanel();
             String menuItem = in.nextLine();
             switch (menuItem) {
@@ -129,6 +139,7 @@ public class OnlinePanelOperations {
                     return;
 
                 default:
+                    System.out.println(incorrectInput);
             }
         }
     }

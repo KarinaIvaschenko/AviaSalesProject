@@ -1,16 +1,16 @@
 package org.aviasales;
 
 public class Customer {
-    Human human;
-    String login;
-    String password;
-    Booking bookings;
+    private int customerId;
+    private Human human;
+    private String login;
+    private String password;
+    private Booking bookings;
 
-    public Customer(Human human, String login, String password, Booking bookings) {
+    public Customer(Human human, String login, String password) {
         this.human = human;
         this.login = login;
         this.password = password;
-        this.bookings = bookings;
     }
 
     public Human getHuman() {
@@ -43,5 +43,13 @@ public class Customer {
 
     public void setBookings(Booking bookings) {
         this.bookings = bookings;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 }

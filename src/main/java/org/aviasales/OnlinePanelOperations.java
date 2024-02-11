@@ -4,12 +4,13 @@ import org.aviasales.Controllers.BookingsController;
 import org.aviasales.Controllers.FlightsController;
 import org.aviasales.Services.FlightsService;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class OnlinePanelOperations {
-    public static void chooseMenu() throws ParseException {
+    public static void chooseMenu() throws ParseException, IOException {
         Scanner in = new Scanner(System.in);
         FlightsController flightsController = new FlightsController();
         BookingsController bookingsController = new BookingsController();

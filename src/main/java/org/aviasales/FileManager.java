@@ -1,13 +1,16 @@
 package org.aviasales;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class FileManager {
     private static final String FILE_PATH_FLIGHTS = "Data/flights.dat";
     private static final String FILE_PATH_BOOKINGS = "Data/bookings.dat";
 
-    public static void writeFlightsData(List<Flight> flights) {
+    public static void writeFlightsData(List<Flight> flights) throws IOException {
+        Files.createDirectories(Paths.get("Data/"));
         try (FileOutputStream fileOut = new FileOutputStream(FILE_PATH_FLIGHTS);
              ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
             objectOut.writeObject(flights);
@@ -28,7 +31,8 @@ public class FileManager {
         return flights;
     }
 
-    public static void writeBookingsData(List<Booking> bookings) {
+    public static void writeBookingsData(List<Booking> bookings) throws IOException {
+        Files.createDirectories(Paths.get("Data/"));
         try (FileOutputStream fileOut = new FileOutputStream(FILE_PATH_BOOKINGS);
              ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
             objectOut.writeObject(bookings);

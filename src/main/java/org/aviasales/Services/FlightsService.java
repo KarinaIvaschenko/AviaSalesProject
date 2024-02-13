@@ -1,5 +1,7 @@
 package org.aviasales.Services;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.aviasales.DAO.CollectionFlightsDAO;
 import org.aviasales.Flight;
 
@@ -11,8 +13,10 @@ import java.util.List;
 
 public class FlightsService {
     private final CollectionFlightsDAO collectionFlightsDAO = new CollectionFlightsDAO();
+    private static final Logger logger = LogManager.getLogger(FlightsService.class);
 
     public List<Flight> getAllFlights() {
+        logger.info("loading all flights");
         return collectionFlightsDAO.getAllFlights();
     }
 

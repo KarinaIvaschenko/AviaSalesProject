@@ -1,0 +1,2 @@
+16:45:54.167 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+16:45:54.379 [main] INFO  org.aviasales.Services.BookingsService - loading all bookings

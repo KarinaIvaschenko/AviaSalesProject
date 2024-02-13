@@ -1,16 +1,20 @@
 package org.aviasales.Services;
 
+import org.apache.logging.log4j.LogManager;
 import org.aviasales.Booking;
 import org.aviasales.DAO.CollectionBookingsDAO;
 import org.aviasales.Human;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.logging.log4j.Logger;
 
 public class BookingsService {
     private final CollectionBookingsDAO collectionBookingsDAO = new CollectionBookingsDAO();
+    private static final Logger logger = LogManager.getLogger(BookingsService.class);
 
     public List<Booking> getAllBookings() {
+        logger.info("loading all bookings");
         return collectionBookingsDAO.getAllBookings();
     }
 

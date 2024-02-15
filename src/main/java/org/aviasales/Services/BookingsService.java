@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.Logger;
 
+import static org.aviasales.Booking.prettyFormat;
+
 public class BookingsService {
     private final CollectionBookingsDAO collectionBookingsDAO = new CollectionBookingsDAO();
     private static final Logger logger = LogManager.getLogger(BookingsService.class);
@@ -29,7 +31,7 @@ public class BookingsService {
 //            collectionFlightsDAO.getAllFlights().forEach(flight -> System.out.println(flight.prettyFormat()));
 //        } else {
 //            System.out.println("No flights");
-//        }
+////        }
 //    }
     public Booking getBookingById(int id) {
         try {
@@ -68,6 +70,7 @@ public class BookingsService {
                 }
             }
         }
+        System.out.println(prettyFormat(bookingsHuman));
         return bookingsHuman;
     }
 }

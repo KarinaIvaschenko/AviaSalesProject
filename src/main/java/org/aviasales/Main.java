@@ -6,7 +6,6 @@ import java.text.ParseException;
 
 public class Main {
     public static void main(String[] args) throws ParseException, IOException {
-        OnlinePanelOperations.chooseMenu();
-
+        new OnlinePanelOperations().chooseMenu();
     }
 }

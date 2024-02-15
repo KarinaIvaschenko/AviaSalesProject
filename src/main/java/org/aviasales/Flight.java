@@ -114,6 +114,7 @@ public class Flight implements Serializable, Comparable<Flight> {
                 "ID", "DATE", "TIME", "DEPARTURE CITY", "DESTINATION CITY", "AIRCRAFT", "AVIACOMPANY");
     }
 
+
     @Override
     public String toString() {
         return "Flight{" +

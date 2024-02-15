@@ -36,4 +36,8 @@ public class FlightsController {
     public boolean findReqFlights(String pointA, String pointB, String date, int passengers) {
         return flightsService.findReqFlights(pointA, pointB, date, passengers);
     }
+
+    public void returnTicket(int id, int tickets) {
+       flightsService.returnTicket(id, tickets);
+    }
 }

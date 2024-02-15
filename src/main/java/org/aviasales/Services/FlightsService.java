@@ -21,15 +21,18 @@ public class FlightsService {
     }
 
     public void setAllFlights(List<Flight> flights) {
+        logger.info("saving all flights");
         collectionFlightsDAO.setAllFlights(flights);
     }
 
     public List<Flight> getAllFlightsSorted() {
+        logger.info("loading all flights");
         Collections.sort(collectionFlightsDAO.getAllFlights());
         return collectionFlightsDAO.getAllFlights();
     }
 
     public void displayAllFlights() {
+        logger.info("display all flights");
         Flight.generalInformationPrettyFormat();
         if (!getAllFlights().isEmpty()) {
             collectionFlightsDAO.getAllFlights().forEach(flight -> System.out.println(flight.prettyFormat()));
@@ -39,6 +42,7 @@ public class FlightsService {
     }
 
     public void displayAllFlightsFor24Hours() throws ParseException {
+        logger.info("display flights for 24 hours");
         Flight.generalInformationPrettyFormat();
         if (!collectionFlightsDAO.getAllFlights().isEmpty()) {
             long currentTimeMillis = System.currentTimeMillis();
@@ -56,6 +60,7 @@ public class FlightsService {
     }
 
     public Flight getFlightById(int id) {
+        logger.info("getting flight by id");
         try {
             return collectionFlightsDAO.getFlightById(id);
         } catch (Exception e) {
@@ -64,6 +69,7 @@ public class FlightsService {
     }
 
     public boolean deleteFlightById(int id) {
+        logger.info("deleting flight by id");
         try {
             return collectionFlightsDAO.deleteFlightById(id);
         } catch (Exception e) {
@@ -72,6 +78,7 @@ public class FlightsService {
     }
 
     public boolean findReqFlights(String pointA, String pointB, String date, int passengers) {
+        logger.info("finding flights for request params");
         boolean flightsFound = false;
         Flight.generalInformationPrettyFormat();
         if (!collectionFlightsDAO.getAllFlights().isEmpty()) {
@@ -90,9 +97,10 @@ public class FlightsService {
         return flightsFound;
     }
 
-    public void soldTicket(int id, int tickets) {
+    public void returnTicket(int id, int tickets) {
+        logger.info("adding ticket after flight cancel");
         collectionFlightsDAO.getFlightById(id).setFreeSeats(collectionFlightsDAO.getFlightById(id)
-                .getFreeSeats() - tickets);
+                .getFreeSeats() + tickets);
         collectionFlightsDAO.saveFlight(collectionFlightsDAO.getFlightById(id));
     }
 }

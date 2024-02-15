@@ -1,6 +1,7 @@
 package org.aviasales;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 public class Booking implements Serializable {
@@ -36,6 +37,17 @@ public class Booking implements Serializable {
 
     public void setHumans(Set<Human> humans) {
         this.humans = humans;
+    }
+
+    public static String prettyFormat(List<Booking> bookings) {
+        StringBuilder formattedBookings = new StringBuilder();
+        formattedBookings.append("Your bookings:\n");
+        for (Booking booking : bookings) {
+            formattedBookings.append("\tBookingId=").append(booking.getBookingId()).append("\n");
+            formattedBookings.append("\tflight=").append(booking.getFlight()).append("\n");
+            formattedBookings.append("\thumans=").append(booking.getHumans()).append("\n");
+        }
+        return formattedBookings.toString();
     }
 
     @Override

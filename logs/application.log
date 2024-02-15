@@ -1,2 +1,11 @@
 16:45:54.167 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
 16:45:54.379 [main] INFO  org.aviasales.Services.BookingsService - loading all bookings
+16:24:38.282 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+16:24:38.501 [main] INFO  org.aviasales.Services.BookingsService - loading all bookings
+16:25:51.430 [main] INFO  org.aviasales.Services.CustomersService - loading all customers
+16:46:45.455 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+16:46:45.675 [main] INFO  org.aviasales.Services.BookingsService - loading all bookings
+17:22:57.392 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+17:22:57.613 [main] INFO  org.aviasales.Services.BookingsService - loading all bookings
+17:56:38.814 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+17:56:39.022 [main] INFO  org.aviasales.Services.BookingsService - loading all bookings

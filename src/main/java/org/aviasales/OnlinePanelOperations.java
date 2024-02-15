@@ -165,8 +165,17 @@ public class OnlinePanelOperations {
         }
         int idBooking = in.nextInt();
         in.nextLine();
+
+        int flightID = bookingsController.getBookingById(idBooking).getFlight().getId();
+        int tickets = bookingsController.getBookingById(idBooking).getHumans().size();
+        System.out.println("УДАЛТЬ!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(bookingsController.getBookingById(idBooking).getFlight().getFreeSeats());
+        flightsController.returnTicket(flightID, tickets);
+        System.out.println(bookingsController.getBookingById(idBooking).getFlight().getFreeSeats());
+        System.out.println("УДАЛТЬ!!!!!!!!!!!!!!!!!!!!!!!!");
         if (bookingsController.getBookingById(idBooking) != null) {
             bookingsController.deleteBookingById(idBooking);
+            flightsController.returnTicket(flightID, tickets);
             System.out.println("Your reservation №" + idBooking + " was successfully cancelled");
         } else {
             System.out.println("There is no reservation with id " + idBooking);

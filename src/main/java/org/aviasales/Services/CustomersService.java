@@ -17,18 +17,22 @@ public class CustomersService {
     }
 
     public void setAllCustomers(List<Customer> customers) {
+        logger.info("saving all customers");
         collectionCustomersDAO.setAllCustomers(customers);
     }
 
     public int generateID() {
+        logger.info("generating customer's id");
         return collectionCustomersDAO.generateID();
     }
 
     public void signUp(Customer customer) {
+        logger.info("sign up customer");
         collectionCustomersDAO.signUp(customer);
     }
 
     public Customer signIn(String login, String password) {
+        logger.info("sign in customer");
         return collectionCustomersDAO.signIn(login, password);
     }
 }

@@ -3,6 +3,7 @@ package org.aviasales.Services;
 import org.apache.logging.log4j.LogManager;
 import org.aviasales.Booking;
 import org.aviasales.DAO.CollectionBookingsDAO;
+import org.aviasales.Flight;
 import org.aviasales.Human;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class BookingsService {
     }
 
     public void setAllBookings(List<Booking> bookings) {
+        logger.info("saving all bookings");
         collectionBookingsDAO.setAllBookings(bookings);
     }
 
@@ -34,6 +36,7 @@ public class BookingsService {
 ////        }
 //    }
     public Booking getBookingById(int id) {
+        logger.info("getting booking by id");
         try {
             return collectionBookingsDAO.getBookingById(id);
         } catch (Exception e) {
@@ -42,6 +45,7 @@ public class BookingsService {
     }
 
     public boolean deleteBookingById(int id) {
+        logger.info("deleting booking by id");
         try {
             return collectionBookingsDAO.deleteBookingById(id);
         } catch (Exception e) {
@@ -50,6 +54,7 @@ public class BookingsService {
     }
 
     public void saveBooking(Booking booking) {
+        logger.info("saving booking");
         try {
             collectionBookingsDAO.saveBooking(booking);
         } catch (Exception e) {
@@ -58,10 +63,12 @@ public class BookingsService {
     }
 
     public int generateID() {
+        logger.info("generating booking's id");
         return collectionBookingsDAO.generateID();
     }
 
     public List<Booking> getBookingsByHuman(String name, String surname) {
+        logger.info("searching booking by human's name and surname");
         List<Booking> bookingsHuman = new ArrayList<>();
         for (Booking booking : collectionBookingsDAO.getAllBookings()) {
             for (Human human : booking.getHumans()) {

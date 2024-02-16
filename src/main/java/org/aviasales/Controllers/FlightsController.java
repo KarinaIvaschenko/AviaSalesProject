@@ -37,6 +37,10 @@ public class FlightsController {
         return flightsService.findReqFlights(pointA, pointB, date, passengers);
     }
 
+    public void boughtTicket(int id, int tickets) {
+       flightsService.boughtTicket(id, tickets);
+    }
+
     public void returnTicket(int id, int tickets) {
        flightsService.returnTicket(id, tickets);
     }

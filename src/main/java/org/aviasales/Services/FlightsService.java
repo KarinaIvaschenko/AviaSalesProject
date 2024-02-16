@@ -97,6 +97,13 @@ public class FlightsService {
         return flightsFound;
     }
 
+    public void boughtTicket(int id, int tickets) {
+        logger.info("selling ticket after flight booking");
+        collectionFlightsDAO.getFlightById(id).setFreeSeats(collectionFlightsDAO.getFlightById(id)
+                .getFreeSeats() - tickets);
+        collectionFlightsDAO.saveFlight(collectionFlightsDAO.getFlightById(id));
+    }
+
     public void returnTicket(int id, int tickets) {
         logger.info("adding ticket after flight cancel");
         collectionFlightsDAO.getFlightById(id).setFreeSeats(collectionFlightsDAO.getFlightById(id)

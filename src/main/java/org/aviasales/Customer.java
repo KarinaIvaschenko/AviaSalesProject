@@ -1,5 +1,7 @@
 package org.aviasales;
 
+import java.util.Objects;
+
 public class Customer extends Human {
     private int customerId;
     private Human human;
@@ -52,5 +54,33 @@ public class Customer extends Human {
 
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", human=" + human +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", bookings=" + bookings +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return customerId == customer.customerId &&
+                Objects.equals(human, customer.human) &&
+                Objects.equals(login, customer.login) &&
+                Objects.equals(password, customer.password) &&
+                Objects.equals(bookings, customer.bookings);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(customerId, human, login, password, bookings);
     }
 }

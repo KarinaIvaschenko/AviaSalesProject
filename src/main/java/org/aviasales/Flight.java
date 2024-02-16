@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class Flight implements Serializable, Comparable<Flight> {
     private int id;
@@ -146,5 +147,26 @@ public class Flight implements Serializable, Comparable<Flight> {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flight flight = (Flight) o;
+        return id == flight.id &&
+                freeSeats == flight.freeSeats &&
+                passengers == flight.passengers &&
+                Objects.equals(date, flight.date) &&
+                Objects.equals(time, flight.time) &&
+                departureCity == flight.departureCity &&
+                destinationCity == flight.destinationCity &&
+                aircraft == flight.aircraft &&
+                aviacompanies == flight.aviacompanies;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, date, time, departureCity, destinationCity, freeSeats, aircraft, passengers, aviacompanies);
     }
 }

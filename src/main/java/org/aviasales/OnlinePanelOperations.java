@@ -8,18 +8,21 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.*;
 
+import static org.aviasales.Exceptions.IncorrectInput.IncorrectUserID;
+import static org.aviasales.Exceptions.IncorrectInput.IncorrectUserInput;
+
 public class OnlinePanelOperations {
-    FlightsController flightsController = new FlightsController();
-    BookingsController bookingsController = new BookingsController();
-    CustomersController customersController = new CustomersController();
-    String incorrectInput = "Incorrect input. Make right choice";
+    private final FlightsController flightsController = new FlightsController();
+    private final BookingsController bookingsController = new BookingsController();
+    private final CustomersController customersController = new CustomersController();
+    private Customer customer;
 
     public void preload() {
         flightsController.setAllFlights(FileManager.loadFlightsData());
         bookingsController.setAllBookings(FileManager.loadBookingsData());
         customersController.setAllCustomers(FileManager.loadCustomersData());
-        //        RandomGenerator randomGenerator = new RandomGenerator();
-        //        FileManager.writeData(randomGenerator.randomGenerator());
+//        RandomGenerator randomGenerator = new RandomGenerator();
+//        FileManager.writeFlightsData(randomGenerator.randomGenerator());
     }
 
     public void authorization() throws IOException {
@@ -34,7 +37,8 @@ public class OnlinePanelOperations {
                     String loginCustomer = in.nextLine();
                     System.out.println("Write please password");
                     String passwordCustomer = in.nextLine();
-                    customersController.signIn(loginCustomer, passwordCustomer);
+                    this.customer = customersController.signIn(loginCustomer, passwordCustomer);
+
                     if (customersController.signIn(loginCustomer, passwordCustomer) != null) {
                         System.out.println("Welcome back, " + loginCustomer);
                         break;
@@ -65,7 +69,7 @@ public class OnlinePanelOperations {
                 case "3":
                     break;
                 default:
-                    System.out.println(incorrectInput);
+                    IncorrectUserInput();
             }
             break;
         }
@@ -79,7 +83,7 @@ public class OnlinePanelOperations {
     private void chooseMenuItem2(Scanner in) {
         System.out.println("Enter please flight ID");
         while (!in.hasNextInt()) {
-            System.out.println("Invalid input. Please enter a valid integer ID.");
+            IncorrectUserID();
             in.next();
         }
         int menuItem2 = in.nextInt();
@@ -103,11 +107,12 @@ public class OnlinePanelOperations {
         System.out.println("Write please passengers quantity");
         int passengers = in.nextInt();
         in.nextLine();
+        int savedPassengers = passengers;
         boolean flightsFound = flightsController.findReqFlights(pointA, pointB, date, passengers);
         if (flightsFound) {
             System.out.println("Please enter the flight ID or enter '0' to return to the previous menu");
             while (!in.hasNextInt()) {
-                System.out.println("Invalid input. Please enter a valid integer ID.");
+                IncorrectUserID();
                 in.next();
             }
             int choice = in.nextInt();
@@ -144,6 +149,7 @@ public class OnlinePanelOperations {
                     }
                     Booking booking = new Booking(bookingsController.generateID(), flightsController.getFlightById(choice), humans);
                     bookingsController.saveBooking(booking);
+                    flightsController.boughtTicket(choice, savedPassengers);
                     System.out.println("You have successfully booked tickets");
                     return;
 
@@ -160,7 +166,7 @@ public class OnlinePanelOperations {
     private void chooseMenuItem4(Scanner in) {
         System.out.println("Enter please booking ID you would like to cancel");
         while (!in.hasNextInt()) {
-            System.out.println("Invalid input. Please enter a valid integer ID.");
+            IncorrectUserID();
             in.next();
         }
         int idBooking = in.nextInt();
@@ -168,11 +174,7 @@ public class OnlinePanelOperations {
 
         int flightID = bookingsController.getBookingById(idBooking).getFlight().getId();
         int tickets = bookingsController.getBookingById(idBooking).getHumans().size();
-        System.out.println("УДАЛТЬ!!!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println(bookingsController.getBookingById(idBooking).getFlight().getFreeSeats());
         flightsController.returnTicket(flightID, tickets);
-        System.out.println(bookingsController.getBookingById(idBooking).getFlight().getFreeSeats());
-        System.out.println("УДАЛТЬ!!!!!!!!!!!!!!!!!!!!!!!!");
         if (bookingsController.getBookingById(idBooking) != null) {
             bookingsController.deleteBookingById(idBooking);
             flightsController.returnTicket(flightID, tickets);
@@ -182,13 +184,21 @@ public class OnlinePanelOperations {
         }
     }
 
-    private void chooseMenuItem5(Scanner in) {
+    private void chooseMenuItem5UnregisteredUser(Scanner in) {
         System.out.println("Write please information about passenger");
         System.out.println("Write please Name");
         String name = in.nextLine().toLowerCase();
         System.out.println("Write please Surname");
         String surname = in.nextLine().toLowerCase();
         List<Booking> bookings = bookingsController.getBookingsByHuman(name, surname);
+        if (bookings.isEmpty()) {
+            System.out.println("This passenger has no bookings");
+        }
+    }
+
+    private void chooseMenuItem5RegisteredUser(Scanner in) {
+        System.out.println("Information about " + this.customer.getName().toUpperCase() + " " + this.customer.getSurname().toUpperCase());
+        List<Booking> bookings = bookingsController.getBookingsByHuman(this.customer.getName(), this.customer.getSurname());
         if (bookings.isEmpty()) {
             System.out.println("This passenger has no bookings");
         }
@@ -220,15 +230,20 @@ public class OnlinePanelOperations {
                     chooseMenuItem4(in);
                     break;
                 case "5":
-                    chooseMenuItem5(in);
+                    if (customer == null) {
+                        chooseMenuItem5UnregisteredUser(in);
+                    } else {
+                        chooseMenuItem5RegisteredUser(in);
+                    }
                     break;
                 case "6":
                 case "exit":
                     chooseMenuItem6();
                     return;
+                case "7":
 
                 default:
-                    System.out.println(incorrectInput);
+                    IncorrectUserInput();
             }
         }
     }

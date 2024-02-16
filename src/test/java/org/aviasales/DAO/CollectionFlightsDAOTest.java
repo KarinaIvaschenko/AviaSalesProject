@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CollectionFlightsDAOTest {
 
-    @Test
+    @org.junit.jupiter.api.Test
     void getAllFlights() {
         CollectionFlightsDAO collectionFlightsDAO1 = new CollectionFlightsDAO();
         CollectionFlightsDAO collectionFlightsDAO2 = new CollectionFlightsDAO();

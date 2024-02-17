@@ -14,85 +14,72 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FlightsServiceTest {
-    private FlightsService flightsService;
-    private CollectionFlightsDAO collectionFlightsDAO;
+    private FlightsService flightsService1;
+    private FlightsService flightsService2;
 
     @BeforeEach
     void init() {
-        this.flightsService = new FlightsService();
+        this.flightsService1 = new FlightsService();
+        this.flightsService2 = new FlightsService();
+        Flight flight1 = new Flight(1, "13/02/2024", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
+        Flight flight2 = new Flight(2, "13/02/2024", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
+        List<Flight> flightsList1 = new ArrayList<>();
+        flightsList1.add(flight1);
+        List<Flight> flightsList2 = new ArrayList<>();
+        flightsList2.add(flight2);
+        this.flightsService1.setAllFlights(flightsList1);
+        this.flightsService2.setAllFlights(flightsList2);
     }
 
     @Test
     void getAllFlights() {
-        FlightsService flightsService1 = new FlightsService();
-        FlightsService flightsService2 = new FlightsService();
-        Flight flight1 = new Flight(1, "2024-02-13", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
-        Flight flight2 = new Flight(2, "2024-02-13", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
-        List<Flight> flights1 = new ArrayList<>();
-        flights1.add(flight1);
-        List<Flight> flights2 = new ArrayList<>();
-        flights2.add(flight2);
-        flightsService1.setAllFlights(flights1);
-        flightsService2.setAllFlights(flights2);
         assertNotEquals(flightsService1.getAllFlights(), flightsService2.getAllFlights());
     }
 
     @Test
     void setAllFlights() {
-        FlightsService flightsService1 = new FlightsService();
-        FlightsService flightsService2 = new FlightsService();
-        Flight flight1 = new Flight(1, "2024-02-13", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
-        Flight flight2 = new Flight(2, "2024-02-13", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
-        List<Flight> flights1 = new ArrayList<>();
-        flights1.add(flight1);
-        List<Flight> flights2 = new ArrayList<>();
-        flights2.add(flight2);
-        flightsService1.setAllFlights(flights1);
-        flightsService2.setAllFlights(flights2);
         assertNotEquals(flightsService1.getAllFlights(), flightsService2.getAllFlights());
     }
 
     @Test
     void getAllFlightsSorted() {
-        FlightsService flightsService1 = new FlightsService();
-        List<Flight> flightsList = new ArrayList<>();
-        Flight flight1 = new Flight(1, "13/02/2024", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
-        Flight flight2 = new Flight(2, "13/02/2024", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
-        flightsList.add(flight2);
-        flightsList.add(flight1);
-        flightsService1.setAllFlights(flightsList);
         flightsService1.getAllFlightsSorted();
         assertEquals(flightsService1.getFlightById(1).getId() - 1, 0);
     }
 
     @Test
-    void displayAllFlights() {
-    }
-
-    @Test
-    void displayAllFlightsFor24Hours() {
-    }
-
-    @Test
     void getFlightById() {
+        assertNotNull(flightsService1.getFlightById(1));
     }
 
     @Test
     void deleteFlightById() {
+        assertTrue(flightsService1.deleteFlightById(1));
+        assertFalse(flightsService2.deleteFlightById(1));
     }
 
     @Test
     void findReqFlights() {
+        assertTrue(flightsService1.findReqFlights("Kyiv", "Kharkiv", "13/02/2024", 1));
+        assertFalse(flightsService2.findReqFlights("Kyiv", "Kharkiv", "13/02/2024", 1000));
     }
 
     @Test
     void boughtTicket() {
+        flightsService1.boughtTicket(1, 4);
+        assertNotEquals(flightsService1.getFlightById(1).getFreeSeats(), 200);
+        assertEquals(flightsService1.getFlightById(1).getFreeSeats(), 196);
     }
 
     @Test
     void returnTicket() {
+        flightsService1.boughtTicket(1, 4);
+        flightsService1.returnTicket(1, 1);
+        assertNotEquals(flightsService1.getFlightById(1).getFreeSeats(), 196);
+        assertEquals(flightsService1.getFlightById(1).getFreeSeats(), 197);
     }
 }

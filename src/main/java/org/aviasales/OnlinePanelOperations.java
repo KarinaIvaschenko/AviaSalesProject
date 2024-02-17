@@ -10,6 +10,7 @@ import java.util.*;
 
 import static org.aviasales.Exceptions.IncorrectInput.IncorrectUserID;
 import static org.aviasales.Exceptions.IncorrectInput.IncorrectUserInput;
+import static org.aviasales.OnlinePanel.showOnlinePanelForRegisteredUser;
 
 public class OnlinePanelOperations {
     private final FlightsController flightsController = new FlightsController();
@@ -214,7 +215,11 @@ public class OnlinePanelOperations {
         authorization();
         Scanner in = new Scanner(System.in);
         while (true) {
-            OnlinePanel.showOnlinePanel();
+            if (this.customer != null) {
+                showOnlinePanelForRegisteredUser();
+            } else {
+                OnlinePanel.showOnlinePanel();
+            }
             String menuItem = in.nextLine();
             switch (menuItem) {
                 case "1":
@@ -241,7 +246,15 @@ public class OnlinePanelOperations {
                     chooseMenuItem6();
                     return;
                 case "7":
-
+                    if (this.customer != null) {
+                        System.out.println("Goodbye " + this.customer.getName().toUpperCase() +
+                                " " + this.customer.getSurname().toUpperCase());
+                        this.customer = null;
+                       authorization();
+                    } else {
+                        IncorrectUserInput();
+                    }
+                    break;
                 default:
                     IncorrectUserInput();
             }

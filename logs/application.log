@@ -402,3 +402,131 @@
 23:59:41.428 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
 23:59:41.429 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
 23:59:41.429 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+11:51:34.180 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:51:34.186 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:51:34.188 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+11:51:34.189 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+11:51:51.671 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:51:51.674 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:51:51.676 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+11:51:51.676 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+11:52:08.357 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:52:08.359 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:52:08.362 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+11:52:08.362 [main] INFO  org.aviasales.Services.FlightsService - getting flight by id
+11:55:25.662 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.666 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.676 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.676 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.680 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.680 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.685 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.685 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.685 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+11:55:25.685 [main] INFO  org.aviasales.Services.FlightsService - getting flight by id
+11:55:25.696 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.696 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.697 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+11:55:25.697 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+11:55:25.702 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.702 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.704 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.705 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.709 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.709 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.714 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.714 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.714 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+11:55:25.715 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+11:55:25.716 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+11:55:25.716 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:04:03.141 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:04:03.144 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:04:03.146 [main] INFO  org.aviasales.Services.FlightsService - getting flight by id
+12:04:27.176 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:04:27.180 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:04:27.182 [main] INFO  org.aviasales.Services.FlightsService - deleting flight by id
+12:04:27.186 [main] INFO  org.aviasales.Services.FlightsService - deleting flight by id
+12:07:49.978 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:07:49.981 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:07:49.983 [main] INFO  org.aviasales.Services.FlightsService - finding flights for request params
+12:07:49.984 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+12:08:18.955 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:08:18.957 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:08:18.959 [main] INFO  org.aviasales.Services.FlightsService - finding flights for request params
+12:08:18.960 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+12:08:18.963 [main] INFO  org.aviasales.Services.FlightsService - finding flights for request params
+12:08:18.965 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+12:08:36.372 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:08:36.376 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:08:36.379 [main] INFO  org.aviasales.Services.FlightsService - finding flights for request params
+12:08:36.380 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+12:08:36.384 [main] INFO  org.aviasales.Services.FlightsService - finding flights for request params
+12:08:36.387 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+12:15:37.881 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:15:37.883 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:15:37.885 [main] INFO  org.aviasales.Services.FlightsService - selling ticket after flight booking
+12:15:37.886 [main] INFO  org.aviasales.Services.FlightsService - getting flight by id
+12:16:07.998 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:16:08.001 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:16:08.004 [main] INFO  org.aviasales.Services.FlightsService - selling ticket after flight booking
+12:16:08.005 [main] INFO  org.aviasales.Services.FlightsService - getting flight by id
+12:16:08.010 [main] INFO  org.aviasales.Services.FlightsService - getting flight by id
+12:16:56.213 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:16:56.217 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:16:56.219 [main] INFO  org.aviasales.Services.FlightsService - selling ticket after flight booking
+12:16:56.220 [main] INFO  org.aviasales.Services.FlightsService - adding ticket after flight cancel
+12:16:56.220 [main] INFO  org.aviasales.Services.FlightsService - getting flight by id
+12:17:10.874 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:17:10.877 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:17:10.879 [main] INFO  org.aviasales.Services.FlightsService - selling ticket after flight booking
+12:17:10.879 [main] INFO  org.aviasales.Services.FlightsService - adding ticket after flight cancel
+12:17:10.880 [main] INFO  org.aviasales.Services.FlightsService - getting flight by id
+12:17:10.884 [main] INFO  org.aviasales.Services.FlightsService - getting flight by id
+12:20:37.249 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:20:37.259 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+12:20:37.262 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+12:23:39.433 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:23:39.444 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+12:23:39.446 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+12:24:35.994 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:24:36.003 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+12:24:36.006 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+12:25:16.461 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:25:16.470 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+12:25:16.474 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+12:26:42.076 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:26:42.085 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+12:26:42.088 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+12:26:52.599 [main] INFO  org.aviasales.Services.CustomersService - sign in customer
+12:26:52.599 [main] INFO  org.aviasales.Services.CustomersService - sign in customer
+12:29:01.414 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:29:01.423 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+12:29:01.426 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+12:29:09.946 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:29:09.955 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+12:29:09.957 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+12:29:17.451 [main] INFO  org.aviasales.Services.CustomersService - sign in customer
+12:29:17.452 [main] INFO  org.aviasales.Services.CustomersService - sign in customer
+12:31:12.475 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:31:12.484 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+12:31:12.486 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+12:31:21.197 [main] INFO  org.aviasales.Services.CustomersService - sign in customer
+12:31:21.198 [main] INFO  org.aviasales.Services.CustomersService - sign in customer
+12:32:31.176 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:32:31.187 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+12:32:31.190 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+12:32:39.569 [main] INFO  org.aviasales.Services.CustomersService - sign in customer
+12:32:39.570 [main] INFO  org.aviasales.Services.CustomersService - sign in customer
+12:33:34.871 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:33:34.881 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+12:33:34.883 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+12:33:53.893 [main] INFO  org.aviasales.Services.CustomersService - sign in customer
+12:33:53.893 [main] INFO  org.aviasales.Services.CustomersService - sign in customer
+12:33:56.422 [main] INFO  org.aviasales.Services.FlightsService - saving all flights
+12:33:56.423 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+12:33:56.424 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+12:34:00.765 [main] INFO  org.aviasales.Services.FlightsService - display flights for 24 hours
+12:34:00.766 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+12:34:06.564 [main] INFO  org.aviasales.Services.FlightsService - loading all flights
+12:34:06.787 [main] INFO  org.aviasales.Services.BookingsService - loading all bookings

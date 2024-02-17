@@ -10,6 +10,6 @@ public interface CustomersDAO {
     void setAllCustomers(List<Customer> customers);
 
     int generateID();
-    public void signUp(Customer customer);
-    public Customer signIn(String login, String password);
+    void signUp(Customer customer);
+    Customer signIn(String login, String password);
 }

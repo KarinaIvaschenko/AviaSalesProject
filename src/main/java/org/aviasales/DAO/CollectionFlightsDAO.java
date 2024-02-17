@@ -40,15 +40,11 @@ public class CollectionFlightsDAO implements FlightsDAO {
 
     @Override
     public void saveFlight(Flight flight) {
-        try {
-            if (this.flights.contains(flight)) {
-                int index = flights.indexOf(flight);
-                this.flights.set(index, flight);
-            } else {
-                flights.add(flight);
-            }
-        } catch (Exception e) {
-            throw e;
+        if (this.flights.contains(flight)) {
+            int index = flights.indexOf(flight);
+            this.flights.set(index, flight);
+        } else {
+            flights.add(flight);
         }
     }
 }

@@ -56,18 +56,4 @@ public class CollectionBookingsDAO implements BookingsDAO {
             return this.bookings.size() + 1;
         }
     }
-
-//    @Override
-//    public void saveBooking(Booking booking) {
-//        try {
-//            if (this.bookings.contains(booking)) {
-//                int index = bookings.indexOf(booking);
-//                this.bookings.set(index, booking);
-//            } else {
-//                bookings.add(booking);
-//            }
-//        } catch (Exception e) {
-//            throw e;
-//        }
-//    }
 }

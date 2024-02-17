@@ -61,20 +61,12 @@ public class FlightsService {
 
     public Flight getFlightById(int id) {
         logger.info("getting flight by id");
-        try {
-            return collectionFlightsDAO.getFlightById(id);
-        } catch (Exception e) {
-            throw e;
-        }
+        return collectionFlightsDAO.getFlightById(id);
     }
 
     public boolean deleteFlightById(int id) {
         logger.info("deleting flight by id");
-        try {
-            return collectionFlightsDAO.deleteFlightById(id);
-        } catch (Exception e) {
-            throw e;
-        }
+        return collectionFlightsDAO.deleteFlightById(id);
     }
 
     public boolean findReqFlights(String pointA, String pointB, String date, int passengers) {

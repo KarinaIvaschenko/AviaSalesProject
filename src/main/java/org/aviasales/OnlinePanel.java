@@ -6,24 +6,28 @@ public class OnlinePanel {
         System.out.println();
         System.out.println("-----Enter command-----");
         System.out.println();
-        System.out.println("- 1. Online Panel\n" +
-                "- 2. View Flight Information\n" +
-                "- 3. Search and Book a Flight\n" +
-                "- 4. Cancel Booking\n" +
-                "- 5. My Flights\n" +
-                "- 6. Exit\n");
+        System.out.println("""
+                - 1. Online Panel
+                - 2. View Flight Information
+                - 3. Search and Book a Flight
+                - 4. Cancel Booking
+                - 5. My Flights
+                - 6. Exit
+                """);
     }
 
     public static void showOnlinePanelForRegisteredUser() {
         System.out.println();
         System.out.println("-----Enter command-----");
         System.out.println();
-        System.out.println("- 1. Online Panel\n" +
-                "- 2. View Flight Information\n" +
-                "- 3. Search and Book a Flight\n" +
-                "- 4. Cancel Booking\n" +
-                "- 5. My Flights\n" +
-                "- 6. Exit\n" +
-                "- 7. Log out\n");
+        System.out.println("""
+                - 1. Online Panel
+                - 2. View Flight Information
+                - 3. Search and Book a Flight
+                - 4. Cancel Booking
+                - 5. My Flights
+                - 6. Exit
+                - 7. Log out
+                """);
     }
 }

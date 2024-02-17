@@ -46,20 +46,12 @@ public class BookingsService {
 
     public boolean deleteBookingById(int id) {
         logger.info("deleting booking by id");
-        try {
-            return collectionBookingsDAO.deleteBookingById(id);
-        } catch (Exception e) {
-            throw e;
-        }
+        return collectionBookingsDAO.deleteBookingById(id);
     }
 
     public void saveBooking(Booking booking) {
         logger.info("saving booking");
-        try {
-            collectionBookingsDAO.saveBooking(booking);
-        } catch (Exception e) {
-            throw e;
-        }
+        collectionBookingsDAO.saveBooking(booking);
     }
 
     public int generateID() {

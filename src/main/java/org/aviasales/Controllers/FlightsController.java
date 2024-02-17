@@ -29,6 +29,10 @@ public class FlightsController {
         return flightsService.getFlightById(id);
     }
 
+    public boolean deleteFlightById(int id){
+        return flightsService.deleteFlightById(id);
+    }
+
     public void displayAllFlightsFor24Hours() throws ParseException {
         flightsService.displayAllFlightsFor24Hours();
     }

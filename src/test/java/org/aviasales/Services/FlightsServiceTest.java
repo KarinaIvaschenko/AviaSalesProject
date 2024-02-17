@@ -1,7 +1,5 @@
 package org.aviasales.Services;
 
-import org.aviasales.DAO.CollectionCustomersDAO;
-import org.aviasales.DAO.CollectionFlightsDAO;
 import org.aviasales.Enums.Aircrafts;
 import org.aviasales.Enums.Aviacompanies;
 import org.aviasales.Enums.Cities;
@@ -10,8 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import static org.junit.Assert.assertNotNull;

@@ -197,7 +197,7 @@ public class OnlinePanelOperations {
         }
     }
 
-    private void chooseMenuItem5RegisteredUser(Scanner in) {
+    private void chooseMenuItem5RegisteredUser() {
         System.out.println("Information about " + this.customer.getName().toUpperCase() + " " + this.customer.getSurname().toUpperCase());
         List<Booking> bookings = bookingsController.getBookingsByHuman(this.customer.getName(), this.customer.getSurname());
         if (bookings.isEmpty()) {
@@ -238,7 +238,7 @@ public class OnlinePanelOperations {
                     if (customer == null) {
                         chooseMenuItem5UnregisteredUser(in);
                     } else {
-                        chooseMenuItem5RegisteredUser(in);
+                        chooseMenuItem5RegisteredUser();
                     }
                     break;
                 case "6":

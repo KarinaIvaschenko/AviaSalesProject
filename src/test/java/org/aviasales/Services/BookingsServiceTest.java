@@ -42,7 +42,7 @@ class BookingsServiceTest {
 
     @Test
     void getAllBookings() {
-            assertNotEquals(bookingsService1.getAllBookings(), bookingsService2.getAllBookings());
+        assertNotEquals(bookingsService1.getAllBookings(), bookingsService2.getAllBookings());
     }
 
     @Test
@@ -63,7 +63,14 @@ class BookingsServiceTest {
 
     @Test
     void saveBooking() {
-        assertNotEquals(bookingsService1, bookingsService2);
+        BookingsService bookingsService3 = new BookingsService();
+        Set<Human> humans = new HashSet<>();
+        Flight flight1 = new Flight(1, "13/02/2024", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
+        Human human1 = new Human("Kar", "Ivaschenko", "woman");
+        humans.add(human1);
+        Booking booking1 = new Booking(bookingsService1.generateID(), flight1, humans);
+        bookingsService3.saveBooking(booking1);
+        assertNotEquals(bookingsService1, bookingsService3);
     }
 
     @Test

@@ -57,7 +57,14 @@ class BookingsControllerTest {
 
     @Test
     void saveBooking() {
-        assertNotEquals(bookingsController1, bookingsController2);
+        BookingsController bookingsController3 = new BookingsController();
+        Set<Human> humans = new HashSet<>();
+        Flight flight1 = new Flight(1, "13/02/2024", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
+        Human human1 = new Human("Kar", "Ivaschenko", "woman");
+        humans.add(human1);
+        Booking booking1 = new Booking(bookingsController1.generateID(), flight1, humans);
+        bookingsController3.saveBooking(booking1);
+        assertNotEquals(bookingsController1, bookingsController3);
     }
 
     @Test

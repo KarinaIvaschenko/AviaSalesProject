@@ -682,3 +682,48 @@
 17:05:02.056 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
 17:05:02.058 [main] INFO  org.aviasales.Services.BookingsService - searching booking by human's name and surname
 17:05:02.071 [main] INFO  org.aviasales.Services.BookingsService - searching booking by human's name and surname
+17:46:45.938 [main] INFO  org.aviasales.Services.BookingsService - generating booking's id
+17:46:45.943 [main] INFO  org.aviasales.Services.BookingsService - generating booking's id
+17:46:45.943 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+17:46:45.943 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+17:46:45.950 [main] INFO  org.aviasales.Services.BookingsService - generating booking's id
+17:46:45.951 [main] INFO  org.aviasales.Services.BookingsService - saving booking
+17:47:55.298 [main] INFO  org.aviasales.Services.BookingsService - generating booking's id
+17:47:55.301 [main] INFO  org.aviasales.Services.BookingsService - generating booking's id
+17:47:55.301 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+17:47:55.301 [main] INFO  org.aviasales.Services.BookingsService - saving all bookings
+17:47:55.303 [main] INFO  org.aviasales.Services.BookingsService - generating booking's id
+17:47:55.303 [main] INFO  org.aviasales.Services.BookingsService - saving booking
+17:53:20.099 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+17:53:20.121 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+17:53:20.127 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+17:53:20.127 [main] INFO  org.aviasales.Services.CustomersService - loading all customers
+17:53:20.128 [main] INFO  org.aviasales.Services.CustomersService - loading all customers
+17:53:20.135 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+17:53:20.138 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+17:53:20.139 [main] INFO  org.aviasales.Services.CustomersService - loading all customers
+17:53:20.139 [main] INFO  org.aviasales.Services.CustomersService - loading all customers
+17:55:02.614 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+17:55:02.631 [main] INFO  org.aviasales.Services.CustomersService - generating customer's id
+17:55:35.516 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+17:55:35.525 [main] INFO  org.aviasales.Services.CustomersService - sign up customer
+17:55:35.525 [main] INFO  org.aviasales.Services.CustomersService - loading all customers
+17:55:35.525 [main] INFO  org.aviasales.Services.CustomersService - loading all customers
+17:56:02.794 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+17:56:02.800 [main] INFO  org.aviasales.Services.CustomersService - sign up customer
+17:56:02.800 [main] INFO  org.aviasales.Services.CustomersService - sign in customer
+17:59:23.776 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+17:59:23.786 [main] INFO  org.aviasales.Services.CustomersService - sign up customer
+17:59:23.787 [main] INFO  org.aviasales.Services.CustomersService - sign in customer
+17:59:23.819 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+17:59:23.819 [main] INFO  org.aviasales.Services.CustomersService - sign up customer
+17:59:23.820 [main] INFO  org.aviasales.Services.CustomersService - loading all customers
+17:59:23.820 [main] INFO  org.aviasales.Services.CustomersService - loading all customers
+17:59:23.826 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+17:59:23.827 [main] INFO  org.aviasales.Services.CustomersService - loading all customers
+17:59:23.827 [main] INFO  org.aviasales.Services.CustomersService - loading all customers
+17:59:23.830 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+17:59:23.831 [main] INFO  org.aviasales.Services.CustomersService - generating customer's id
+17:59:23.834 [main] INFO  org.aviasales.Services.CustomersService - saving all customers
+17:59:23.835 [main] INFO  org.aviasales.Services.CustomersService - loading all customers
+17:59:23.835 [main] INFO  org.aviasales.Services.CustomersService - loading all customers

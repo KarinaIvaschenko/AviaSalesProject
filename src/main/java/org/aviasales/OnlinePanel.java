@@ -23,6 +23,7 @@ public class OnlinePanel {
                 "- 3. Search and Book a Flight\n" +
                 "- 4. Cancel Booking\n" +
                 "- 5. My Flights\n" +
-                "- 6. Exit\n");
+                "- 6. Exit\n" +
+                "- 7. Log out\n");
     }
 }

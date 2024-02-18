@@ -1,15 +1,13 @@
 package org.aviasales.DAO;
 
-import org.aviasales.Booking;
 import org.aviasales.Enums.Aircrafts;
 import org.aviasales.Enums.Aviacompanies;
 import org.aviasales.Enums.Cities;
-import org.aviasales.Flight;
+import org.aviasales.Entity.Flight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.Assert.assertNotNull;

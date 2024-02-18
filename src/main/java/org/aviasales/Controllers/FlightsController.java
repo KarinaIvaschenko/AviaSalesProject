@@ -1,6 +1,6 @@
 package org.aviasales.Controllers;
 
-import org.aviasales.Flight;
+import org.aviasales.Entity.Flight;
 import org.aviasales.Services.FlightsService;
 
 import java.text.ParseException;
@@ -9,8 +9,8 @@ import java.util.List;
 public class FlightsController {
     FlightsService flightsService;
 
-    public FlightsController() {
-        this.flightsService = new FlightsService();
+    public FlightsController(FlightsService flightsService) {
+        this.flightsService = flightsService;
     }
 
     public List<Flight> getAllFlights() {
@@ -27,6 +27,10 @@ public class FlightsController {
 
     public Flight getFlightById(int id) {
         return flightsService.getFlightById(id);
+    }
+
+    public boolean deleteFlightById(int id){
+        return flightsService.deleteFlightById(id);
     }
 
     public void displayAllFlightsFor24Hours() throws ParseException {

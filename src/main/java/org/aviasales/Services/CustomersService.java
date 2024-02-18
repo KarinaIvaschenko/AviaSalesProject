@@ -2,15 +2,18 @@ package org.aviasales.Services;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.aviasales.Customer;
+import org.aviasales.Entity.Customer;
 import org.aviasales.DAO.CollectionCustomersDAO;
 
 import java.util.List;
 
 public class CustomersService {
-    private final CollectionCustomersDAO collectionCustomersDAO = new CollectionCustomersDAO();
+    private final CollectionCustomersDAO collectionCustomersDAO;
     private static final Logger logger = LogManager.getLogger(CustomersService.class);
 
+    public CustomersService(CollectionCustomersDAO collectionCustomersDAO) {
+        this.collectionCustomersDAO = collectionCustomersDAO;
+    }
     public List<Customer> getAllCustomers() {
         logger.info("loading all customers");
         return collectionCustomersDAO.getAllCustomers();

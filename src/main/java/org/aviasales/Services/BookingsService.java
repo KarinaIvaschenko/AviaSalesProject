@@ -1,20 +1,22 @@
 package org.aviasales.Services;
 
 import org.apache.logging.log4j.LogManager;
-import org.aviasales.Booking;
+import org.aviasales.Entity.Booking;
 import org.aviasales.DAO.CollectionBookingsDAO;
-import org.aviasales.Flight;
-import org.aviasales.Human;
+import org.aviasales.Entity.Human;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.Logger;
 
-import static org.aviasales.Booking.prettyFormat;
+import static org.aviasales.Entity.Booking.prettyFormat;
 
 public class BookingsService {
-    private final CollectionBookingsDAO collectionBookingsDAO = new CollectionBookingsDAO();
+    private final CollectionBookingsDAO collectionBookingsDAO;
     private static final Logger logger = LogManager.getLogger(BookingsService.class);
+    public BookingsService(CollectionBookingsDAO collectionBookingsDAO) {
+        this.collectionBookingsDAO = collectionBookingsDAO;
+    }
 
     public List<Booking> getAllBookings() {
         logger.info("loading all bookings");
@@ -26,15 +28,6 @@ public class BookingsService {
         collectionBookingsDAO.setAllBookings(bookings);
     }
 
-
-    //    public void displayAllFlights() {
-//        Flight.generalInformationPrettyFormat();
-//        if (!getAllFlights().isEmpty()) {
-//            collectionFlightsDAO.getAllFlights().forEach(flight -> System.out.println(flight.prettyFormat()));
-//        } else {
-//            System.out.println("No flights");
-////        }
-//    }
     public Booking getBookingById(int id) {
         logger.info("getting booking by id");
         try {
@@ -46,20 +39,12 @@ public class BookingsService {
 
     public boolean deleteBookingById(int id) {
         logger.info("deleting booking by id");
-        try {
-            return collectionBookingsDAO.deleteBookingById(id);
-        } catch (Exception e) {
-            throw e;
-        }
+        return collectionBookingsDAO.deleteBookingById(id);
     }
 
     public void saveBooking(Booking booking) {
         logger.info("saving booking");
-        try {
-            collectionBookingsDAO.saveBooking(booking);
-        } catch (Exception e) {
-            throw e;
-        }
+        collectionBookingsDAO.saveBooking(booking);
     }
 
     public int generateID() {

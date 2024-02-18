@@ -1,6 +1,6 @@
 package org.aviasales.DAO;
 
-import org.aviasales.Booking;
+import org.aviasales.Entity.Booking;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package org.aviasales.DAO;
 
-import org.aviasales.Flight;
+import org.aviasales.Entity.Flight;
 
 import java.util.List;
 

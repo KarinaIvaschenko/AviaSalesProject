@@ -1,6 +1,6 @@
 package org.aviasales.Controllers;
 
-import org.aviasales.Booking;
+import org.aviasales.Entity.Booking;
 import org.aviasales.Services.BookingsService;
 
 import java.util.List;
@@ -8,8 +8,8 @@ import java.util.List;
 public class BookingsController {
     BookingsService bookingsService;
 
-    public BookingsController() {
-        this.bookingsService = new BookingsService();
+    public BookingsController(BookingsService bookingsService) {
+        this.bookingsService = bookingsService;
     }
 
     public List<Booking> getAllBookings() {

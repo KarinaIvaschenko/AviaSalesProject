@@ -1,4 +1,4 @@
-package org.aviasales;
+package org.aviasales.Entity;
 
 import java.util.Objects;
 

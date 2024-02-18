@@ -1,4 +1,4 @@
-package org.aviasales;
+package org.aviasales.Entity;
 
 import org.aviasales.Enums.Aircrafts;
 import org.aviasales.Enums.Aviacompanies;
@@ -16,6 +16,7 @@ public class Flight implements Serializable, Comparable<Flight> {
     private String time;
     private Cities departureCity;
     private Cities destinationCity;
+    private Cities transferCity;
     private int freeSeats;
     private Aircrafts aircraft;
     private int passengers;
@@ -27,6 +28,19 @@ public class Flight implements Serializable, Comparable<Flight> {
         this.time = time;
         this.departureCity = departureCity;
         this.destinationCity = destinationCity;
+        this.freeSeats = freeSeats;
+        this.aircraft = aircraft;
+        this.passengers = passengers;
+        this.aviacompanies = aviacompanies;
+    }
+
+    public Flight(int id, String date, String time, Cities departureCity, Cities destinationCity, Cities transferCity, int freeSeats, Aircrafts aircraft, int passengers, Aviacompanies aviacompanies) {
+        this.id = id;
+        this.date = date;
+        this.time = time;
+        this.departureCity = departureCity;
+        this.destinationCity = destinationCity;
+        this.transferCity = transferCity;
         this.freeSeats = freeSeats;
         this.aircraft = aircraft;
         this.passengers = passengers;
@@ -105,14 +119,22 @@ public class Flight implements Serializable, Comparable<Flight> {
         this.aviacompanies = aviacompanies;
     }
 
+    public Cities getTransferCity() {
+        return transferCity;
+    }
+
+    public void setTransferCity(Cities transferCity) {
+        this.transferCity = transferCity;
+    }
+
     public String prettyFormat() {
-        return String.format("%-5s | %-10s | %-8s | %-18s | %-18s | %-18s | %-18s",
-                this.id, this.date, this.time, this.departureCity, this.destinationCity, this.aircraft, this.aviacompanies);
+        return String.format("%-7s | %-10s | %-8s | %-18s | %-18s | %-18s | %-18s | %-18s",
+                this.id, this.date, this.time, this.departureCity, this.destinationCity, this.transferCity, this.aircraft, this.aviacompanies);
     }
 
     public static void generalInformationPrettyFormat() {
-        System.out.printf("%-5s | %-10s | %-8s | %-18s | %-18s | %-18s | %-18s%n",
-                "ID", "DATE", "TIME", "DEPARTURE CITY", "DESTINATION CITY", "AIRCRAFT", "AVIACOMPANY");
+        System.out.printf("%-7s | %-10s | %-8s | %-18s | %-18s | %-18s | %-18s | %-18s%n",
+                "ID", "DATE", "TIME", "DEPARTURE CITY", "DESTINATION CITY", "TRANSFER CITY", "AIRCRAFT", "AVIACOMPANY");
     }
 
 
@@ -124,6 +146,7 @@ public class Flight implements Serializable, Comparable<Flight> {
                 ", time='" + time + '\'' +
                 ", departureCity=" + departureCity +
                 ", destinationCity=" + destinationCity +
+                ", transferCity=" + transferCity +
                 ", freeSeats=" + freeSeats +
                 ", aircraft=" + aircraft +
                 ", passengers=" + passengers +
@@ -161,12 +184,13 @@ public class Flight implements Serializable, Comparable<Flight> {
                 Objects.equals(time, flight.time) &&
                 departureCity == flight.departureCity &&
                 destinationCity == flight.destinationCity &&
+                transferCity == flight.transferCity &&
                 aircraft == flight.aircraft &&
                 aviacompanies == flight.aviacompanies;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, date, time, departureCity, destinationCity, freeSeats, aircraft, passengers, aviacompanies);
+        return Objects.hash(id, date, time, departureCity, destinationCity, transferCity, freeSeats, aircraft, passengers, aviacompanies);
     }
 }

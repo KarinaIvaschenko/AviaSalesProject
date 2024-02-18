@@ -1,4 +1,8 @@
-package org.aviasales;
+package org.aviasales.Utils;
+
+import org.aviasales.Entity.Booking;
+import org.aviasales.Entity.Customer;
+import org.aviasales.Entity.Flight;
 
 import java.io.*;
 import java.nio.file.Files;

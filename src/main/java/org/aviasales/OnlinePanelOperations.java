@@ -3,6 +3,17 @@ package org.aviasales;
 import org.aviasales.Controllers.BookingsController;
 import org.aviasales.Controllers.CustomersController;
 import org.aviasales.Controllers.FlightsController;
+import org.aviasales.DAO.CollectionBookingsDAO;
+import org.aviasales.DAO.CollectionCustomersDAO;
+import org.aviasales.DAO.CollectionFlightsDAO;
+import org.aviasales.Entity.Booking;
+import org.aviasales.Entity.Customer;
+import org.aviasales.Entity.Human;
+import org.aviasales.Services.BookingsService;
+import org.aviasales.Services.CustomersService;
+import org.aviasales.Services.FlightsService;
+import org.aviasales.Utils.FileManager;
+import org.aviasales.Utils.RandomGenerator;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -13,9 +24,9 @@ import static org.aviasales.Exceptions.IncorrectInput.IncorrectUserInput;
 import static org.aviasales.OnlinePanel.showOnlinePanelForRegisteredUser;
 
 public class OnlinePanelOperations {
-    private final FlightsController flightsController = new FlightsController();
-    private final BookingsController bookingsController = new BookingsController();
-    private final CustomersController customersController = new CustomersController();
+    private final FlightsController flightsController = new FlightsController(new FlightsService(new CollectionFlightsDAO()));
+    private final BookingsController bookingsController = new BookingsController(new BookingsService(new CollectionBookingsDAO()));
+    private final CustomersController customersController = new CustomersController(new CustomersService(new CollectionCustomersDAO()));
     private Customer customer;
 
     public void preload() {

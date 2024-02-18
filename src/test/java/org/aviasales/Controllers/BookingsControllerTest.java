@@ -1,11 +1,13 @@
 package org.aviasales.Controllers;
 
-import org.aviasales.Booking;
+import org.aviasales.DAO.CollectionBookingsDAO;
+import org.aviasales.Entity.Booking;
 import org.aviasales.Enums.Aircrafts;
 import org.aviasales.Enums.Aviacompanies;
 import org.aviasales.Enums.Cities;
-import org.aviasales.Flight;
-import org.aviasales.Human;
+import org.aviasales.Entity.Flight;
+import org.aviasales.Entity.Human;
+import org.aviasales.Services.BookingsService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,8 +25,8 @@ class BookingsControllerTest {
 
     @BeforeEach
     void init() {
-        this.bookingsController1 = new BookingsController();
-        this.bookingsController2 = new BookingsController();
+        this.bookingsController1 = new BookingsController(new BookingsService(new CollectionBookingsDAO()));
+        this.bookingsController2 = new BookingsController(new BookingsService(new CollectionBookingsDAO()));
         Flight flight1 = new Flight(1, "13/02/2024", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
         Flight flight2 = new Flight(2, "13/02/2024", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
         Set<Human> humans = new HashSet<>();
@@ -57,7 +59,7 @@ class BookingsControllerTest {
 
     @Test
     void saveBooking() {
-        BookingsController bookingsController3 = new BookingsController();
+        BookingsController bookingsController3 = new BookingsController(new BookingsService(new CollectionBookingsDAO()));
         Set<Human> humans = new HashSet<>();
         Flight flight1 = new Flight(1, "13/02/2024", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
         Human human1 = new Human("Kar", "Ivaschenko", "woman");

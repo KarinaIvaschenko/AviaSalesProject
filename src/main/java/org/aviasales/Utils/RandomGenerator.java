@@ -1,6 +1,6 @@
-package org.aviasales;
+package org.aviasales.Utils;
 
-import org.aviasales.Controllers.FlightsController;
+import org.aviasales.Entity.Flight;
 import org.aviasales.Enums.Aircrafts;
 import org.aviasales.Enums.Aviacompanies;
 import org.aviasales.Enums.Cities;
@@ -31,14 +31,24 @@ public class RandomGenerator {
 
     private Cities getRandomCity1() {
         Cities[] cities = Cities.values();
-        int index = random.nextInt(cities.length);
+        int index = random.nextInt(cities.length - 1);
         return cities[index];
     }
 
     private Cities getRandomCity2() {
         Cities[] cities = Cities.values();
-        int index = random.nextInt(cities.length);
+        int index = random.nextInt(cities.length - 1);
         return cities[index];
+    }
+
+    private Cities getRandomCity3() {
+        if (random.nextDouble() <= 0.5) {
+            Cities[] cities = Cities.values();
+            int index = random.nextInt(cities.length);
+            return cities[index];
+        } else {
+            return Cities.Direct;
+        }
     }
 
     private Aircrafts getRandomAircraft() {
@@ -63,15 +73,20 @@ public class RandomGenerator {
 
     public List<Flight> randomGenerator() {
         List<Flight> flights = new ArrayList<>();
-        for (int i = 1; i <= 15000; i++) {
+        for (int i = 1; i <= 85000; i++) {
             Cities city1 = getRandomCity1();
             Cities city2 = getRandomCity2();
+            Cities city3 = getRandomCity3();
 
             while (city1.equals(city2)) {
                 city2 = getRandomCity2();
             }
 
-            Flight flight = new Flight(i, getRandomDate(), getRandomTime(), city1, city2,
+            while (city3.equals(city1) || city3.equals(city2)) {
+                city3 = getRandomCity3();
+            }
+
+            Flight flight = new Flight(i, getRandomDate(), getRandomTime(), city1, city2, city3,
                     getRandomFreeSeats(), getRandomAircraft(), getRandomPassengers(), getRandomAviacompanies());
             flights.add(flight);
         }

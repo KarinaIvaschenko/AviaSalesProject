@@ -1,9 +1,10 @@
 package org.aviasales.Services;
 
+import org.aviasales.DAO.CollectionFlightsDAO;
 import org.aviasales.Enums.Aircrafts;
 import org.aviasales.Enums.Aviacompanies;
 import org.aviasales.Enums.Cities;
-import org.aviasales.Flight;
+import org.aviasales.Entity.Flight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,8 +20,8 @@ class FlightsServiceTest {
 
     @BeforeEach
     void init() {
-        this.flightsService1 = new FlightsService();
-        this.flightsService2 = new FlightsService();
+        this.flightsService1 = new FlightsService(new CollectionFlightsDAO());
+        this.flightsService2 = new FlightsService(new CollectionFlightsDAO());
         Flight flight1 = new Flight(1, "13/02/2024", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
         Flight flight2 = new Flight(2, "13/02/2024", "14:30", Cities.Kyiv, Cities.Kharkiv, 200, Aircrafts.Boeing_777, 150, Aviacompanies.Airbaltic);
         List<Flight> flightsList1 = new ArrayList<>();

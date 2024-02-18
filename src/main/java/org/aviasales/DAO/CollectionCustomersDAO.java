@@ -1,6 +1,6 @@
 package org.aviasales.DAO;
 
-import org.aviasales.Customer;
+import org.aviasales.Entity.Customer;
 
 import java.util.ArrayList;
 import java.util.List;

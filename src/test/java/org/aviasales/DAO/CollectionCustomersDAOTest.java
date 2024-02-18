@@ -1,6 +1,6 @@
 package org.aviasales.DAO;
 
-import org.aviasales.Customer;
+import org.aviasales.Entity.Customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;

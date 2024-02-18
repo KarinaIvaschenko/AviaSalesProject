@@ -1,6 +1,7 @@
 package org.aviasales.Services;
 
-import org.aviasales.Customer;
+import org.aviasales.DAO.CollectionCustomersDAO;
+import org.aviasales.Entity.Customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,8 +18,8 @@ class CustomersServiceTest {
 
     @BeforeEach
     void init() {
-        this.customersService1 = new CustomersService();
-        this.customersService2 = new CustomersService();
+        this.customersService1 = new CustomersService(new CollectionCustomersDAO());
+        this.customersService2 = new CustomersService(new CollectionCustomersDAO());
         List<Customer> customers = new ArrayList<>();
         this.customer = new Customer(1, "Eugen", "Lobok", "man", "Eugen", "123");
         customers.add(0, customer);
